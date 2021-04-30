@@ -1,0 +1,2 @@
+module RecipeCreatorsHelper
+end
