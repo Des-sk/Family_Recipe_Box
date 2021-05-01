@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get '/' => 'sessions#welcome'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/signup' => 'contributors#new'
+
   resources :recipe_creators
   resources :recipes
   resources :contributors
