@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get '/' => 'sessions#welcome'
+  root to: 'application#welcome'
+  get '/signup' => 'contributors#new'
+  post '/signup' => 'contributors#create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/signup' => 'contributors#new'
-
-  resources :recipe_creators
-  resources :recipes
+  get '/logout' => 'sessions#destroy'
+  get '/auth/:provider/callback', => 'sessions#omniauth'
   resources :contributors
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

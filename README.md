@@ -23,3 +23,15 @@ Things you may want to cover:
 
 * ...
 # Family_Recipe_Box
+# <h1> Login </h1>
+
+# <%= form_for(@contributor) do |f| %>
+
+#     <%= f.label :email%>
+#     <%= f.email_field :email %>
+
+#     <%= f.label :password %>
+#     <%= f.password_field :password %>
+
+#     <%= f.submit "Sign up" %>
+# <% end %>
