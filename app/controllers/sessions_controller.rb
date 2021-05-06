@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
           c.email = request.env['omniauth.auth'][:info][:email]
           c.password = SecureRandom.hex(15)
         end 
-        if user.valid?
+        if contributor.valid?
           session[:contributor_id] = contributor.id # log them 
           redirect_to root_path
         else

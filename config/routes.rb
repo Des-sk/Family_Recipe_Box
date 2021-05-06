@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   post '/signup' => 'contributors#create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
-  get '/auth/:provider/callback', => 'sessions#omniauth'
+  post '/logout' => 'sessions#destroy'
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
   resources :contributors
+  resources :recipes
   
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

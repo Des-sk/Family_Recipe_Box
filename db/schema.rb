@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_050828) do
+ActiveRecord::Schema.define(version: 2021_05_06_165434) do
 
   create_table "contributors", force: :cascade do |t|
     t.string "name"
@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 2021_05_02_050828) do
     t.string "title"
     t.string "ingredients"
     t.text "directions"
-    t.integer "user_id", null: false
     t.integer "recipe_creator_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "contributor_id", null: false
+    t.index ["contributor_id"], name: "index_recipes_on_contributor_id"
     t.index ["recipe_creator_id"], name: "index_recipes_on_recipe_creator_id"
-    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
+  add_foreign_key "recipes", "contributors"
   add_foreign_key "recipes", "recipe_creators"
-  add_foreign_key "recipes", "users"
 end
