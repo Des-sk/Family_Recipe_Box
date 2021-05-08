@@ -1,0 +1,19 @@
+<h1><%= @recipe.title %></h1>
+
+Ingredients: <br>
+<%= @recipe.ingredients %> <br>
+<br>
+Directions: <br>
+<%= @recipe.directions %>
+<br>
+<br>
+<br>
+Added by: <%= @recipe.contributor.name %> <br>
+
+Created by: <%= @recipe.recipe_creator.name %> <br>
+
+
+<% if @recipe.recipe_creator.secret_ingredient? %>
+    <%= @recipe.recipe_creator.phone_number %>
+<% end %>
+ 

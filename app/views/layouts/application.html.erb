@@ -11,6 +11,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <br>
+    <%= link_to "Recipe Box", recipes_path %> | 
+    <%= link_to "Add New Recipe", new_recipe_path %> | 
+    <%= link_to "Family Recipe Creators", recipe_creators_path %> | 
+      <%= yield %>
   </body>
 </html>
