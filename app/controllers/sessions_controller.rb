@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
 
     def new # render the login form 
+      render action: "new", layout: false
         if logged_in?
-            redirect_to root_path
+            redirect_to root_path   
         end
     end
 

@@ -1,5 +1,7 @@
 <h1><%= @recipe.title %></h1>
 
+
+
 Ingredients: <br>
 <%= @recipe.ingredients %> <br>
 <br>
@@ -8,12 +10,23 @@ Directions: <br>
 <br>
 <br>
 <br>
+<% if @recipe.recipe_creator %>
 Added by: <%= @recipe.contributor.name %> <br>
-
 Created by: <%= @recipe.recipe_creator.name %> <br>
 
-
-<% if @recipe.recipe_creator.secret_ingredient? %>
-    <%= @recipe.recipe_creator.phone_number %>
 <% end %>
+
+<% if @recipe.recipe_creator.secret_ingredient == "yes" %>
+    Here is <%=@recipe.recipe_creator.name %>'s contact to see if you can get her/him to tell you the secret ingredient. Good luck! <br>
+    Contact: <%= @recipe.recipe_creator.phone_number %> <br>
+<% else %>
+    Contact: <%= @recipe.recipe_creator.phone_number %> <br>
+<% end %>
+<br>
+<br>
+<%= link_to'Delete Recipe', recipe_path(@recipe), method: 'delete' %> 
+
+
+
+
  

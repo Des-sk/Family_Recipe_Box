@@ -3,6 +3,7 @@ class ContributorsController < ApplicationController
     def new # render a signup form
         if !logged_in?
             @contributor = Contributor.new
+            render action: "new", layout: false
         else 
             redirect_to root_path
         end

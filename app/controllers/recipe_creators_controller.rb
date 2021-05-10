@@ -13,9 +13,19 @@ class RecipeCreatorsController < ApplicationController
         if @recipe_creator.save
             redirect_to recipe_creator_path(@recipe_creator)
         else
-            render :new_recipe_path
+            render :new
         end
     end
+
+
+    def show 
+        # if i wanted to show all organizations donations as well
+        @recipe_creator = RecipeCreator.find_by(id: params[:id])
+    end
+
+
+    
+    
 
     private 
 

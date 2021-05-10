@@ -1,0 +1,16 @@
+
+   <br>
+   <br>
+   
+   <h1>  Add a New Family Member as a Recie Creator</h1>
+   <%= form_for(@recipe_creator) do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <%= f.label :phone_number %>
+            <%= f.telephone_field :phone_number %>
+            <%= f.label :secret_ingredient? %>
+            <%= f.check_box :secret_ingredient %>
+       
+   
+    <%= f.submit %>
+<% end %>
