@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :recipes
   # only nested routes that we need are the index, new, create
   resources :recipe_creators do #7 resfull routs
-    resources :recipes, only: [:index, :new, :create,] #need separate resource for not nested resources, but will crete 7 restful routes for NESTED res. 
+    resources :recipes, only: [:index, :new, :create, :edit] #need separate resource for not nested resources, but will crete 7 restful routes for NESTED res. 
   end 
   
  

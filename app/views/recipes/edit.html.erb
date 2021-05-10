@@ -15,8 +15,8 @@
     <% else %>
 
     <h2> Recipe Created by: </h2>
-   <h5> Select a Family Member that Already Exists in the Recipe Box </h5>
-   <%= f.collection_select(:recipe_creator_id, RecipeCreator.all, :id, :name, prompt: true) %>
+
+    <%= f.collection_select(:recipe_creator_id, RecipeCreator.all, :id, :name, {:prompt => 'Select Recipe Creator'}) %>
 
    <h5> Or Add a New Family Member </h5>
         <%= f.fields_for :recipe_creator do |rc| %>
