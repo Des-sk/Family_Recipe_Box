@@ -1,16 +1,12 @@
-
 <h1> Add a New Recipe </h1>
 
 <%= form_for([@recipes, @recipe]) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
-
     <%= f.label :ingredients%>
     <%= f.text_field :ingredients %>
-
     <%= f.label :directions %>
     <%= f.text_field :directions %>
-
     <%if @recipe_creator %>
     <%= f.hidden_field :recipe_creator_id, value: @recipe_creator.id %>
     <% else %>
@@ -32,5 +28,4 @@
     <%end %>
     <%= f.submit %>
 <% end %>
-
 

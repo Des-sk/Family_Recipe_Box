@@ -1,17 +1,26 @@
 
-<br>
+
 <br>
 <% if @recipe_creator %>
-    <h1><%= @recipe_creator.name %>'s Recipes </h1>
+        <h1><%= @recipe_creator.name %>'s Recipes </h1> <br>
+        <%= link_to "Add a New Recipe", new_recipe_creator_recipe_path %> <br>   
 <% else %>
-    <h1> Recipe Box </h1>
+<h1> Recipe Box </h1>
 <% end %>
 
-    <% @recipes.each do |r| %><br>
-        Title: <%= r.title %> <br>
-        Created by: <%= r.recipe_creator.name %> <br>
-        Added by: <%= r.contributor.name %> 
-        <br>
-        <br>
-    <% end %>
+        <% @recipes.each do |r| %><br>
+            <%= link_to r.title, recipe_path(r) %> <br>
+            Created by: <%= r.recipe_creator.name %> <br>
+            Added by: <%= r.contributor.name %> 
+            <br>
+            <br>
+        <% end %> 
+  
+
+   
+
+    
+    
+    
+
     

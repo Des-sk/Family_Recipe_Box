@@ -1,6 +1,6 @@
 <h1> Family Recipe Creators </h1>
 
-<% @recipe_creators.each do |rc| %>
-    <li><%= rc.name %></li>
-<% end %>
+<% @recipe_creators.each do |recipe_creator| %>
+    <li> <%= link_to recipe_creator.name, recipe_creator_recipes_path(recipe_creator) %> <br> </li> 
+<%end%>
 
