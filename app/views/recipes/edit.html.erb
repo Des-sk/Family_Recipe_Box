@@ -3,13 +3,10 @@
 <%= form_for([@recipe_creator, @recipe]) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
-
     <%= f.label :ingredients%>
     <%= f.text_field :ingredients %>
-
     <%= f.label :directions %>
     <%= f.text_field :directions %>
-
     <%if @recipe_creator %>
     <%= f.hidden_field :recipe_creator_id, value: @recipe_creator.id %>
     <% else %>

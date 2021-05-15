@@ -14,7 +14,9 @@
     <br>
     <%= link_to "Recipe Box", recipes_path %> | 
     <%= link_to "Add New Recipe", new_recipe_path %> | 
-    <%= link_to "Family Recipe Creators", recipe_creators_path %> 
+    <%= link_to "Family Recipe Creators", recipe_creators_path %> |
+    <%= link_to "Family Recipe Box Contributors", contributors_path %>
+
     <br>
     <%= button_to 'Logout', logout_path %>
       <%= yield %>

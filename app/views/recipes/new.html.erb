@@ -1,5 +1,7 @@
 <h1> Add a New Recipe </h1>
 
+<%= render partial: 'layouts/errors',locals: {object: @recipe} %>
+
 <%= form_for([@recipes, @recipe]) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>

@@ -1,5 +1,10 @@
 class ContributorsController < ApplicationController
 
+    def index
+        @contributors = Contributor.contribs_recipes
+    end
+    
+    
     def new # render a signup form
         if !logged_in?
             @contributor = Contributor.new
@@ -10,14 +15,16 @@ class ContributorsController < ApplicationController
     end 
 
     def create
-        contributor = Contributor.new(contributor_params)
-        if contributor.save
-            session[:contributor_id] = contributor.id
+        @contributor = Contributor.new(contributor_params)
+        if @contributor.save
+            session[:contributor_id] = @contributor.id
             redirect_to root_path
         else
             render :new
         end
     end
+
+
 
     
 

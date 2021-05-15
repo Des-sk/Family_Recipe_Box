@@ -1,8 +1,11 @@
-
    <br>
    <br>
    
    <h1>  Add a New Family Member as a Recie Creator</h1>
+
+   <%= render partial: 'layouts/errors', locals: {object: @recipe_creator} %>
+
+
    <%= form_for(@recipe_creator) do |f| %>
             <%= f.label :name %>
             <%= f.text_field :name %>
