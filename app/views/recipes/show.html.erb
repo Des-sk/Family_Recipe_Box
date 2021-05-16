@@ -2,8 +2,6 @@
 
 <h1><%= @recipe.title %></h1>
 
-
-
 Ingredients: <br>
 <%= @recipe.ingredients %> <br>
 <br>
@@ -18,10 +16,8 @@ Created by: <%= @recipe.recipe_creator.name %> <br>
 
 <% end %>
 
-<% if @recipe.recipe_creator.secret_ingredient == "yes" %>
-    Here is <%=@recipe.recipe_creator.name %>'s contact to see if you can get her/him to tell you the secret ingredient. Good luck! <br>
-    Contact: <%= @recipe.recipe_creator.phone_number %> <br>
-<% else %>
+<% if @recipe.recipe_creator.secret_ingredient == "Yes" || "yes" %>
+    <h4><%=@recipe.recipe_creator.name %> is usually keeping a secret ingredient! Call them to see if they'll share it with you. Good luck! </h4>
     Contact: <%= @recipe.recipe_creator.phone_number %> <br>
 <% end %>
 <br>

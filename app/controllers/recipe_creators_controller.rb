@@ -7,14 +7,7 @@ class RecipeCreatorsController < ApplicationController
         @recipe_creator = RecipeCreator.new
     end
 
-    # def create
-    #     @recipe_creator = RecipeCreator.new(recipe_creator_params)
-    #     if @recipe_creator.save
-    #         redirect_to recipe_creator_path(@recipe_creator)
-    #     else
-    #         render :new
-    #     end
-    # end
+    
     def index
         @recipe_creators = RecipeCreator.all
     end

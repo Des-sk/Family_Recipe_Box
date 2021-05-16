@@ -1,0 +1,29 @@
+<%= f.label :title %> <br>
+<%= f.text_field :title %><br>
+<%= f.label :ingredients%> <br>
+<%= f.text_area :ingredients %><br>
+<%= f.label :directions %> <br>
+<%= f.text_area :directions %>
+<%if @recipe_creator %>
+<%= f.hidden_field :recipe_creator_id, value: @recipe_creator.id %>
+<% else %>
+
+<h2> Recipe Created by: </h2>
+
+<%= f.collection_select(:recipe_creator_id, RecipeCreator.all, :id, :name, {:prompt => 'Select Recipe Creator'}) %>
+
+<h5> Or Add a New Family Member </h5>
+    <%= f.fields_for :recipe_creator do |rc| %>
+        <%= rc.label :name %>
+        <%= rc.text_field :name %>
+        <%= rc.label :phone_number %>
+        <%= rc.telephone_field :phone_number %><br>
+        <br>
+        Do they like to keep 
+        <%= rc.label :secret_ingredient%>s ?
+        <%= rc.text_field :secret_ingredient %><br>
+        
+    <% end %>
+<%end %>
+<br>
+<%= f.submit %>

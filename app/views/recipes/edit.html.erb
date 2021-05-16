@@ -1,29 +1,5 @@
 <h1> Edit Recipe </h1>
 
 <%= form_for([@recipe_creator, @recipe]) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :ingredients%>
-    <%= f.text_field :ingredients %>
-    <%= f.label :directions %>
-    <%= f.text_field :directions %>
-    <%if @recipe_creator %>
-    <%= f.hidden_field :recipe_creator_id, value: @recipe_creator.id %>
-    <% else %>
-
-    <h2> Recipe Created by: </h2>
-
-    <%= f.collection_select(:recipe_creator_id, RecipeCreator.all, :id, :name, {:prompt => 'Select Recipe Creator'}) %>
-
-   <h5> Or Add a New Family Member </h5>
-        <%= f.fields_for :recipe_creator do |rc| %>
-            <%= rc.label :name %>
-            <%= rc.text_field :name %>
-            <%= rc.label :phone_number %>
-            <%= rc.telephone_field :phone_number %>
-            <%= rc.label :secret_ingredient %>
-            <%= rc.check_box :secret_ingredient %>
-        <% end %>
-    <%end %>
-    <%= f.submit %>
+    <%=render partial: "form", locals: {f: f} %>
 <% end %>

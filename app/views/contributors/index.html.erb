@@ -1,9 +1,12 @@
 <h1> Family Recipe Box Contributors </h1>
 
 <% @contributors.each do |contributor| %>
-    <%= contributor.name %>
+    <h4><%= contributor.name %></h4>
        <% contributor.recipes.each do |recipe| %>
-        <li> <%= recipe.title %> </li>
+        <li> <%= link_to recipe.title, recipe_path(recipe) %> </li>
     <% end %>
+    <br>
+    <br>
 <% end %>
+
     
