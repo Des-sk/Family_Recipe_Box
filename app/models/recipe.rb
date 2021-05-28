@@ -13,6 +13,8 @@ class Recipe < ApplicationRecord
             errors.add(:title, "already exists in this Family Member's Recipe Box")
         end
     end
+
+   
     
     def recipe_creator_attributes=(attributes)
       self.recipe_creator = RecipeCreator.find_or_create_by(attributes) if !attributes['name'].empty?

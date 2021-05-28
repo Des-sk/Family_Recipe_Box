@@ -10,7 +10,7 @@ class ContributorsController < ApplicationController
             @contributor = Contributor.new
             render action: "new", layout: false
         else 
-            redirect_to root_path
+            redirect_to recipes_path
         end
     end 
 
@@ -18,7 +18,7 @@ class ContributorsController < ApplicationController
         @contributor = Contributor.new(contributor_params)
         if @contributor.save
             session[:contributor_id] = @contributor.id
-            redirect_to root_path
+            redirect_to recipes_path
         else
             render :new
         end

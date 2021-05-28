@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     def new # render the login form 
       render action: "new", layout: false
         if logged_in?
-            redirect_to root_path   
+            redirect_to recipes_path   
         end
     end
 
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         contributor = Contributor.find_by(email: params[:email])
         if contributor && contributor.authenticate(params[:password])
             session[:contributor_id] = contributor.id
-            redirect_to root_path
+            redirect_to recipes_path
         else
             render :new
         end
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
         end 
         if contributor.valid?
           session[:contributor_id] = contributor.id # log them 
-          redirect_to root_path
+          redirect_to recipes_path
         else
           redirect_to login_path 
         end 
